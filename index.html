@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Altos — Software that just works</title>
+  <meta name="description" content="Altos is a full-stack software studio specialized in seamless integrations — connecting your webstore, inventory, and third-party systems so they just work." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#16324F',
+              deep: '#0F2438',
+              soft: '#1B3A5B',
+              muted: '#3D5A75',
+            },
+            teal: {
+              DEFAULT: '#5FBFAE',
+              bright: '#6FD3C0',
+              deep: '#3E9C8B',
+            },
+            mist: '#F4F5F6',
+          },
+          fontFamily: {
+            display: ['Sora', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          maxWidth: { content: '76rem' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --navy: #16324F;
+      --navy-soft: #1B3A5B;
+      --teal: #5FBFAE;
+      --mist: #F4F5F6;
+    }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Sora', system-ui, sans-serif; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal[data-delay="1"] { transition-delay: .08s; }
+    .reveal[data-delay="2"] { transition-delay: .16s; }
+    .reveal[data-delay="3"] { transition-delay: .24s; }
+
+    /* Ascending chevron background field */
+    .chev-field { background-image:
+        linear-gradient(115deg, transparent 40%, rgba(95,191,174,.06) 100%);
+    }
+    .grid-lines {
+      background-image:
+        linear-gradient(to right, rgba(22,50,79,.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(22,50,79,.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+    }
+
+    .link-underline { position: relative; }
+    .link-underline::after {
+      content: ''; position: absolute; left: 0; bottom: -3px; height: 2px; width: 100%;
+      background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16,1,.3,1);
+    }
+    .link-underline:hover::after { transform: scaleX(1); }
+
+    .card-hover { transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1), border-color .4s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -24px rgba(22,50,79,.28); }
+
+    .btn-teal { transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease, background-color .25s ease; }
+    .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(95,191,174,.6); }
+
+    /* Floating chevron drift */
+    @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    .drift { animation: drift 7s ease-in-out infinite; }
+    .drift-slow { animation: drift 11s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      .drift, .drift-slow { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
+
+  <!-- ============ NAV ============ -->
+  <header id="top" class="sticky top-0 z-50 border-b border-navy/5 bg-mist/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-content items-center justify-between px-6 py-4 lg:px-8">
+      <a href="#top" aria-label="Altos home" class="flex items-center">
+        <!-- Logo lockup: chevron built into the A -->
+        <svg width="128" height="34" viewBox="0 0 250 60" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Altos">
+          <!-- A drawn as a peak -->
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- teal chevron nested inside the A -->
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- LTOS -->
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+      </a>
+
+      <div class="hidden items-center gap-9 md:flex">
+        <a href="#services" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">What we do</a>
+        <a href="#why" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Why Altos</a>
+        <a href="#work" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Work</a>
+        <a href="#contact" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Start a project</a>
+      </div>
+
+      <a href="#contact" class="btn-teal rounded-full bg-teal px-4 py-2 text-sm font-semibold text-navy-deep md:hidden">Start a project</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="chev-field relative overflow-hidden">
+      <div class="grid-lines pointer-events-none absolute inset-0"></div>
+
+      <!-- background ascending chevrons -->
+      <svg class="drift pointer-events-none absolute -right-10 top-24 h-72 w-72 opacity-[0.07] lg:right-20" viewBox="0 0 200 200" fill="none">
+        <path d="M20 150 L100 40 L180 150" stroke="#16324F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 190 L100 80 L180 190" stroke="#16324F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="drift-slow pointer-events-none absolute left-2 top-40 h-40 w-40 opacity-[0.06] lg:left-16" viewBox="0 0 200 200" fill="none">
+        <path d="M20 150 L100 40 L180 150" stroke="#5FBFAE" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <div class="mx-auto max-w-content px-6 pb-28 pt-24 lg:px-8 lg:pb-40 lg:pt-36">
+        <div class="reveal mx-auto max-w-3xl text-center">
+          <span class="mb-7 inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-navy-muted">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 17 L12 6 L20 17" stroke="#5FBFAE" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Full-stack software studio
+          </span>
+
+          <h1 class="font-display text-5xl font-extrabold leading-[1.04] tracking-tight text-navy sm:text-6xl lg:text-7xl">
+            We build software<br class="hidden sm:block" /> that <span class="relative whitespace-nowrap text-navy">just works<span class="absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-teal/60"></span></span>.
+          </h1>
+
+          <p class="reveal mx-auto mt-8 max-w-xl text-lg leading-relaxed text-navy-muted" data-delay="1">
+            A full-stack studio for custom software of every kind — with a specialist reputation for
+            <span class="font-semibold text-navy">seamless integrations</span> that make your systems talk to each other.
+          </p>
+
+          <div class="reveal mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row" data-delay="2">
+            <a href="#contact" class="btn-teal w-full rounded-full bg-teal px-8 py-4 text-base font-semibold text-navy-deep sm:w-auto">Start a project</a>
+            <a href="#services" class="link-underline group inline-flex items-center gap-2 text-base font-semibold text-navy">
+              See what we do
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="transition-transform group-hover:translate-y-0.5"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- chevron divider -->
+      <div class="relative h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent"></div>
+    </section>
+
+    <!-- ============ WHAT WE DO ============ -->
+    <section id="services" class="mx-auto max-w-content px-6 py-24 lg:px-8 lg:py-32">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">What we do</p>
+        <h2 class="font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">Generalist capability. Specialist reputation.</h2>
+        <p class="mt-4 text-lg text-navy-muted">We build anything you need — and we're known for the hard part: making separate systems work as one.</p>
+      </div>
+
+      <div class="mt-16 grid gap-6 md:grid-cols-3">
+        <!-- Custom Software -->
+        <div class="reveal card-hover rounded-2xl border border-navy/8 bg-white p-8">
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-mist">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12" stroke="#16324F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy">Custom Software</h3>
+          <p class="mt-3 leading-relaxed text-navy-muted">Web apps, internal tools, custom systems — whatever your business actually needs, built properly.</p>
+        </div>
+
+        <!-- Integrations (highlighted) -->
+        <div class="reveal card-hover relative overflow-hidden rounded-2xl border-2 border-teal/50 bg-navy p-8 text-white shadow-[0_24px_60px_-30px_rgba(22,50,79,.6)]" data-delay="1">
+          <div class="pointer-events-none absolute -right-8 -top-8 h-32 w-32 opacity-20">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M10 75 L50 20 L90 75" stroke="#5FBFAE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="mb-4 inline-block rounded-full bg-teal/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-bright">Our specialty</span>
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 8a4 4 0 0 0 0 8h2M17 8a4 4 0 0 1 0 8h-2M8 12h8" stroke="#5FBFAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold">Integrations</h3>
+          <p class="mt-3 leading-relaxed text-white/70">Connect any system to any other. E-commerce APIs, inventory, payments, third-party tools — talking seamlessly, in real time.</p>
+        </div>
+
+        <!-- Inventory & Commerce -->
+        <div class="reveal card-hover rounded-2xl border border-navy/8 bg-white p-8" data-delay="2">
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-mist">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 8l8-4 8 4-8 4-8-4zM4 8v8l8 4 8-4V8M12 12v8" stroke="#16324F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-navy">Inventory &amp; Commerce</h3>
+          <p class="mt-3 leading-relaxed text-navy-muted">Proven expertise in the systems that run stores — stock, orders, fulfillment, and the webstores they power.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY ALTOS ============ -->
+    <section id="why" class="border-y border-navy/5 bg-white">
+      <div class="mx-auto max-w-content px-6 py-24 lg:px-8 lg:py-32">
+        <div class="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <div class="reveal">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">Why Altos</p>
+            <h2 class="font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">The kind of team you don't have to manage.</h2>
+            <p class="mt-5 text-lg leading-relaxed text-navy-muted">We move fast, ship clean, and make the right calls without hand-holding. You get outcomes, not overhead.</p>
+
+            <div class="mt-10 grid grid-cols-2 gap-8">
+              <div>
+                <div class="font-display text-4xl font-extrabold text-navy">0<span class="text-teal">·</span>bugs</div>
+                <p class="mt-1 text-sm text-navy-muted">Shipped on our featured build.</p>
+              </div>
+              <div>
+                <div class="font-display text-4xl font-extrabold text-navy">100<span class="text-teal">%</span></div>
+                <p class="mt-1 text-sm text-navy-muted">On-time delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="grid gap-5 sm:grid-cols-2">
+            <!-- feature -->
+            <li class="reveal flex gap-4 rounded-xl border border-navy/8 bg-mist/60 p-5">
+              <span class="mt-0.5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16 L12 6 L19 16" stroke="#5FBFAE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><h3 class="font-display font-semibold text-navy">Fast delivery</h3><p class="mt-1 text-sm leading-relaxed text-navy-muted">Momentum from day one — real progress every week.</p></div>
+            </li>
+            <li class="reveal flex gap-4 rounded-xl border border-navy/8 bg-mist/60 p-5" data-delay="1">
+              <span class="mt-0.5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16 L12 6 L19 16" stroke="#5FBFAE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><h3 class="font-display font-semibold text-navy">Zero-bug reliability</h3><p class="mt-1 text-sm leading-relaxed text-navy-muted">We test like it's production because it is. It just works.</p></div>
+            </li>
+            <li class="reveal flex gap-4 rounded-xl border border-navy/8 bg-mist/60 p-5" data-delay="1">
+              <span class="mt-0.5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16 L12 6 L19 16" stroke="#5FBFAE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><h3 class="font-display font-semibold text-navy">Proactive decisions</h3><p class="mt-1 text-sm leading-relaxed text-navy-muted">We spot the edge cases and handle them before you ask.</p></div>
+            </li>
+            <li class="reveal flex gap-4 rounded-xl border border-navy/8 bg-mist/60 p-5" data-delay="2">
+              <span class="mt-0.5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16 L12 6 L19 16" stroke="#5FBFAE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><h3 class="font-display font-semibold text-navy">Clear communication</h3><p class="mt-1 text-sm leading-relaxed text-navy-muted">Plain updates, honest timelines, no jargon or surprises.</p></div>
+            </li>
+            <li class="reveal flex gap-4 rounded-xl border border-navy/8 bg-mist/60 p-5 sm:col-span-2" data-delay="2">
+              <span class="mt-0.5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16 L12 6 L19 16" stroke="#5FBFAE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><h3 class="font-display font-semibold text-navy">No hand-holding needed</h3><p class="mt-1 text-sm leading-relaxed text-navy-muted">Hand us the goal. We'll bring back a working product — and the decisions we made to get there.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASE STUDY ============ -->
+    <section id="work" class="relative overflow-hidden bg-navy text-white">
+      <!-- background ascending layers -->
+      <svg class="drift-slow pointer-events-none absolute -left-16 bottom-0 h-96 w-96 opacity-[0.08]" viewBox="0 0 200 200" fill="none">
+        <path d="M10 160 L100 40 L190 160" stroke="#5FBFAE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 195 L100 75 L190 195" stroke="#5FBFAE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <div class="mx-auto max-w-content px-6 py-24 lg:px-8 lg:py-32">
+        <div class="reveal max-w-2xl">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-teal-bright">Featured project</p>
+          <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">A full inventory system, rebuilt and wired to the webstore.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-white/70">
+            We recreated a client's entire inventory platform from the ground up and integrated it directly with their webstore APIs — stock, pricing, and orders syncing in real time. Delivered on time. Zero bugs in production.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-3">
+          <div class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="font-display text-3xl font-extrabold text-teal-bright">Rebuilt</div>
+            <p class="mt-2 text-sm text-white/60">Entire inventory system, from scratch.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-white/5 p-6" data-delay="1">
+            <div class="font-display text-3xl font-extrabold text-teal-bright">Real-time</div>
+            <p class="mt-2 text-sm text-white/60">Live sync with webstore APIs.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-white/5 p-6" data-delay="2">
+            <div class="font-display text-3xl font-extrabold text-teal-bright">On time</div>
+            <p class="mt-2 text-sm text-white/60">Zero bugs at launch.</p>
+          </div>
+        </div>
+
+        <!-- testimonial -->
+        <figure class="reveal mt-14 max-w-3xl border-l-2 border-teal pl-6 sm:pl-8">
+          <blockquote class="font-display text-xl font-medium leading-relaxed text-white/90 sm:text-2xl">
+            &ldquo;They handed us a system that simply worked from day one. Everything connected, nothing broke, and we barely had to explain what we needed.&rdquo;
+          </blockquote>
+          <figcaption class="mt-5 text-sm text-white/55">
+            <span class="font-semibold text-white">Client testimonial</span> — Operations lead, retail &amp; commerce
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / CTA ============ -->
+    <section id="contact" class="relative overflow-hidden">
+      <div class="grid-lines pointer-events-none absolute inset-0"></div>
+      <div class="mx-auto max-w-content px-6 py-28 text-center lg:px-8 lg:py-36">
+        <div class="reveal mx-auto max-w-2xl">
+          <svg class="drift mx-auto mb-8 h-10 w-10" viewBox="0 0 24 24" fill="none"><path d="M3 17 L12 5 L21 17" stroke="#5FBFAE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2 class="font-display text-4xl font-extrabold tracking-tight text-navy sm:text-5xl">Let's build something.</h2>
+          <p class="mx-auto mt-5 max-w-lg text-lg text-navy-muted">Tell us what you're trying to connect, automate, or ship. We'll take it from there.</p>
+          <div class="mt-10">
+            <a href="mailto:hello@altos.systems" class="btn-teal inline-flex items-center gap-2 rounded-full bg-teal px-8 py-4 text-base font-semibold text-navy-deep">
+              hello@altos.systems
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-navy/5 bg-mist">
+    <div class="mx-auto flex max-w-content flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row lg:px-8">
+      <div class="flex items-center gap-3">
+        <svg width="110" height="30" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+        <span class="hidden text-sm text-navy-muted sm:inline">altos.systems</span>
+      </div>
+      <div class="flex items-center gap-8 text-sm">
+        <a href="#services" class="link-underline text-navy/70 hover:text-navy">What we do</a>
+        <a href="#work" class="link-underline text-navy/70 hover:text-navy">Work</a>
+        <a href="mailto:hello@altos.systems" class="link-underline font-semibold text-navy">Contact</a>
+      </div>
+      <p class="text-xs text-navy-muted">© <span id="year"></span> Altos. It just works.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
+</body>
+</html>
