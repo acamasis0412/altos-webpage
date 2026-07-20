@@ -15,6 +15,20 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#16324F" />
 
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Altos" />
+  <meta property="og:title" content="Altos — Software that just works" />
+  <meta property="og:description" content="A full-stack software studio specialized in seamless integrations. We connect your systems so they just work." />
+  <meta property="og:url" content="https://altos.systems/" />
+  <meta property="og:image" content="https://altos.systems/assets/altos-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Altos — Software that just works" />
+  <meta name="twitter:description" content="A full-stack software studio specialized in seamless integrations." />
+  <meta name="twitter:image" content="https://altos.systems/assets/altos-og.png" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -137,8 +151,22 @@
         <a href="#contact" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Start a project</a>
       </div>
 
-      <a href="#contact" class="btn-teal rounded-full bg-teal px-4 py-2 text-sm font-semibold text-navy-deep md:hidden">Start a project</a>
+      <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-white/70 md:hidden">
+        <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg id="icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden border-t border-navy/5 bg-mist/95 backdrop-blur-md md:hidden">
+      <div class="space-y-1 px-6 py-4">
+        <a href="#services" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">What we do</a>
+        <a href="#why" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">Why Altos</a>
+        <a href="#work" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">Work</a>
+        <a href="/shoplink/" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">ShopLink</a>
+        <a href="#contact" class="mt-2 block rounded-full bg-teal px-4 py-3 text-center text-base font-semibold text-navy-deep">Start a project</a>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -367,7 +395,7 @@
             </svg>
             <p class="mt-4 leading-relaxed text-navy-muted">Our own inventory app — it connects your webstores (Alibaba, Etsy, freewebstore, and more), syncs stock in real time, and unifies orders. The clearest proof of the integration work we do for clients.</p>
           </div>
-          <a href="/shoplink/" class="btn-teal inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-navy-deep">
+          <a href="/shoplink/" class="btn-teal inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-navy-deep lg:self-center">
             Explore ShopLink
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -418,6 +446,22 @@
   <script>
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    (function () {
+      var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu');
+      var io = document.getElementById('icon-open'), ic = document.getElementById('icon-close');
+      if (!btn) return;
+      function setOpen(open) {
+        menu.classList.toggle('hidden', !open);
+        io.classList.toggle('hidden', open);
+        ic.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    })();
 
     // Scroll reveal
     (function () {

@@ -11,6 +11,20 @@
   <link rel="apple-touch-icon" href="/assets/shoplink-mark-on-navy.png" />
   <meta name="theme-color" content="#16324F" />
 
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ShopLink" />
+  <meta property="og:title" content="ShopLink — Your inventory, synced everywhere" />
+  <meta property="og:description" content="Connect your webstores, sync stock in real time, unify orders, and get reports that matter. A product by Altos." />
+  <meta property="og:url" content="https://altos.systems/shoplink/" />
+  <meta property="og:image" content="https://altos.systems/assets/shoplink-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ShopLink — Your inventory, synced everywhere" />
+  <meta name="twitter:description" content="Connect your webstores, sync stock in real time, and unify orders. A product by Altos." />
+  <meta name="twitter:image" content="https://altos.systems/assets/shoplink-og.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -70,8 +84,22 @@
         <a href="/" class="link-underline text-sm font-medium text-navy/50 hover:text-navy">Altos</a>
         <a href="mailto:hello@altos.systems?subject=ShopLink%20%E2%80%94%20Get%20started" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Get started</a>
       </div>
-      <a href="mailto:hello@altos.systems?subject=ShopLink%20%E2%80%94%20Get%20started" class="btn-teal rounded-full bg-teal px-4 py-2 text-sm font-semibold text-navy-deep md:hidden">Get started</a>
+      <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy hover:bg-white/70 md:hidden">
+        <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg id="icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
     </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden border-t border-navy/5 bg-mist/95 backdrop-blur-md md:hidden">
+      <div class="space-y-1 px-6 py-4">
+        <a href="#features" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">Features</a>
+        <a href="#integrations" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">Integrations</a>
+        <a href="#how" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/80 hover:bg-white">How it works</a>
+        <a href="/" class="block rounded-lg px-3 py-2.5 text-base font-medium text-navy/60 hover:bg-white">Altos</a>
+        <a href="mailto:hello@altos.systems?subject=ShopLink%20%E2%80%94%20Get%20started" class="mt-2 block rounded-full bg-teal px-4 py-3 text-center text-base font-semibold text-navy-deep">Get started</a>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -267,6 +295,21 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu');
+      var io = document.getElementById('icon-open'), ic = document.getElementById('icon-close');
+      if (btn) {
+        var setOpen = function (open) {
+          menu.classList.toggle('hidden', !open);
+          io.classList.toggle('hidden', open);
+          ic.classList.toggle('hidden', !open);
+          btn.setAttribute('aria-expanded', open);
+          btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        };
+        btn.addEventListener('click', function () { setOpen(menu.classList.contains('hidden')); });
+        menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+      }
+    })();
     (function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return;}
     var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(e){io.observe(e)});})();
