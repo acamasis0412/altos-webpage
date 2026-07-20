@@ -1,0 +1,8 @@
+<svg width="300" height="64" viewBox="0 0 300 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ShopLink">
+  <!-- mark: teal chevron lifting two connection nodes -->
+  <path d="M14 45 L30 24 L46 45" stroke="#5FBFAE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="14" cy="45" r="7" fill="#16324F"/>
+  <circle cx="46" cy="45" r="7" fill="#16324F"/>
+  <!-- wordmark -->
+  <text x="72" y="45" font-family="Sora, sans-serif" font-size="38" font-weight="800" fill="#16324F">ShopLink</text>
+</svg>
