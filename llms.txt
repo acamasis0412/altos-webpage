@@ -1,0 +1,23 @@
+# Altos
+
+> Altos is a full-stack software studio that builds custom software of all kinds, with a specialist reputation for seamless integrations — connecting businesses to their e-commerce/webstore APIs, inventory systems, and third-party tools. Brand promise: "Software that just works."
+
+Altos builds web apps, internal tools, and complete custom systems. Its specialty is integrations: making separate systems talk to each other reliably and in real time. The team is AI-accelerated but senior-led, and delivers efficiently through a lean, globally distributed senior team — top-tier engineering without a top-tier agency price tag. Contact: hello@altos.systems.
+
+## Services
+- **Custom Software**: web apps, internal tools, and bespoke systems built to spec.
+- **Integrations (specialty)**: connect any system to any other — e-commerce APIs, inventory systems, payment providers, and third-party tools — syncing in real time.
+- **Inventory & Commerce Systems**: stock, orders, fulfillment, and the webstores they power.
+
+## How Altos works
+- **AI-accelerated**: uses AI across the build to ship in days, not months; every output is reviewed and owned by senior engineers.
+- **Senior-led**: every decision and every line is driven by senior engineers, never juniors.
+- **Efficient by design**: a lean, globally distributed senior team keeps pricing fair without cutting quality.
+
+## Products
+- [ShopLink](https://altos.systems/shoplink/): Altos's own inventory application. It connects your webstores (Alibaba, Etsy, freewebstore, Shopify, WooCommerce, and any platform with an API), syncs stock in real time across every channel, unifies orders in one place, sends low-stock alerts, and generates reports and insights.
+
+## Links
+- [Altos home](https://altos.systems/): studio overview, services, featured work, and contact.
+- [ShopLink](https://altos.systems/shoplink/): multi-channel inventory sync product.
+- Contact: hello@altos.systems

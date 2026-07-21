@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Altos — Software that just works</title>
-  <meta name="description" content="Altos is a full-stack software studio specialized in seamless integrations — connecting your webstore, inventory, and third-party systems so they just work." />
+  <title>Altos — Custom Software &amp; Systems Integration Studio</title>
+  <meta name="description" content="Altos is a full-stack software studio specializing in systems integration — connecting e-commerce and webstore APIs, inventory systems, and third-party tools. Custom software that just works." />
+  <meta name="keywords" content="systems integration, software integration studio, custom software development, e-commerce API integration, inventory system integration, webstore integration, API integration, ShopLink" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Altos" />
+  <link rel="canonical" href="https://altos.systems/" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -34,35 +38,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind (Play CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: {
-              DEFAULT: '#16324F',
-              deep: '#0F2438',
-              soft: '#1B3A5B',
-              muted: '#3D5A75',
-            },
-            teal: {
-              DEFAULT: '#5FBFAE',
-              bright: '#6FD3C0',
-              deep: '#3E9C8B',
-            },
-            mist: '#F4F5F6',
-          },
-          fontFamily: {
-            display: ['Sora', 'system-ui', 'sans-serif'],
-            body: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          maxWidth: { content: '76rem' },
-        },
-      },
-    };
-  </script>
+  <!-- Compiled Tailwind (static, no render-blocking CDN) -->
+  <link rel="stylesheet" href="/assets/tailwind.css" />
 
   <style>
     :root {
@@ -119,12 +96,65 @@
     @keyframes pulse-dot { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
     .pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
 
+    /* FAQ accordion */
+    details.faq > summary { list-style: none; }
+    details.faq > summary::-webkit-details-marker { display: none; }
+    details.faq .faq-icon { transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    details.faq[open] .faq-icon { transform: rotate(180deg); }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1 !important; transform: none !important; transition: none; }
       .drift, .drift-slow, .flow-line, .pulse-dot { animation: none; }
       html { scroll-behavior: auto; }
     }
   </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://altos.systems/#organization",
+        "name": "Altos",
+        "url": "https://altos.systems/",
+        "logo": "https://altos.systems/assets/altos-logo.png",
+        "image": "https://altos.systems/assets/altos-og.png",
+        "description": "Altos is a full-stack software studio specializing in systems integration — connecting e-commerce and webstore APIs, inventory systems, and third-party tools.",
+        "email": "hello@altos.systems",
+        "slogan": "Software that just works.",
+        "knowsAbout": ["Systems integration", "Custom software development", "E-commerce API integration", "Inventory management systems", "Webstore integration", "API integration"],
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software", "description": "Web apps, internal tools, and bespoke systems built to spec." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integrations", "description": "Connecting any system to any other — e-commerce APIs, inventory, payments, and third-party tools — in real time." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inventory & Commerce Systems", "description": "Stock, orders, fulfillment, and the webstores they power." } }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://altos.systems/#website",
+        "url": "https://altos.systems/",
+        "name": "Altos",
+        "description": "Full-stack software studio specialized in seamless integrations.",
+        "publisher": { "@id": "https://altos.systems/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://altos.systems/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What does Altos do?", "acceptedAnswer": { "@type": "Answer", "text": "Altos is a full-stack software studio. We build custom software of all kinds — web apps, internal tools, and complete systems — and we specialize in integrations that connect your existing tools so they work as one." } },
+          { "@type": "Question", "name": "What integrations does Altos specialize in?", "acceptedAnswer": { "@type": "Answer", "text": "We connect e-commerce and webstore APIs, inventory systems, payment providers, and third-party tools. If a system has an API, we can wire it into the rest of your stack and keep data flowing in real time." } },
+          { "@type": "Question", "name": "Which platforms and systems can Altos integrate?", "acceptedAnswer": { "@type": "Answer", "text": "Common ones include Alibaba, Etsy, freewebstore, Shopify, and WooCommerce, plus inventory and order-management systems. Because we build to each API, we can integrate virtually any platform that exposes one." } },
+          { "@type": "Question", "name": "How fast can Altos deliver?", "acceptedAnswer": { "@type": "Answer", "text": "We're AI-accelerated and senior-led, so we typically ship in days or weeks rather than months — without cutting corners. Every output is reviewed and owned by senior engineers." } },
+          { "@type": "Question", "name": "Is Altos expensive?", "acceptedAnswer": { "@type": "Answer", "text": "No. A lean, globally distributed senior team lets us deliver top-tier engineering without a top-tier agency price tag — premium quality at a fair, efficient rate." } },
+          { "@type": "Question", "name": "What is ShopLink?", "acceptedAnswer": { "@type": "Answer", "text": "ShopLink is Altos's own inventory product. It connects your webstores, syncs stock in real time across every channel, unifies orders in one place, and turns it all into reports. It is the clearest proof of the integration work we do for clients." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
@@ -403,6 +433,60 @@
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="border-t border-navy/5 bg-white">
+      <div class="mx-auto max-w-3xl px-6 py-24 lg:px-8 lg:py-28">
+        <div class="reveal mb-12 text-center">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">FAQ</p>
+          <h2 class="font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">Questions, answered.</h2>
+        </div>
+        <div class="space-y-4">
+          <details class="faq reveal rounded-2xl border border-navy/10 bg-mist/50 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold text-navy">
+              What does Altos do?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3E9C8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="mt-3 leading-relaxed text-navy-muted">Altos is a full-stack software studio. We build custom software of all kinds — web apps, internal tools, and complete systems — and we specialize in integrations that connect your existing tools so they work as one.</p>
+          </details>
+          <details class="faq reveal rounded-2xl border border-navy/10 bg-mist/50 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold text-navy">
+              What integrations does Altos specialize in?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3E9C8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="mt-3 leading-relaxed text-navy-muted">We connect e-commerce and webstore APIs, inventory systems, payment providers, and third-party tools. If a system has an API, we can wire it into the rest of your stack and keep data flowing in real time.</p>
+          </details>
+          <details class="faq reveal rounded-2xl border border-navy/10 bg-mist/50 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold text-navy">
+              Which platforms and systems can Altos integrate?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3E9C8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="mt-3 leading-relaxed text-navy-muted">Common ones include Alibaba, Etsy, freewebstore, Shopify, and WooCommerce, plus inventory and order-management systems. Because we build to each API, we can integrate virtually any platform that exposes one.</p>
+          </details>
+          <details class="faq reveal rounded-2xl border border-navy/10 bg-mist/50 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold text-navy">
+              How fast can Altos deliver?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3E9C8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="mt-3 leading-relaxed text-navy-muted">We're AI-accelerated and senior-led, so we typically ship in days or weeks rather than months — without cutting corners. Every output is reviewed and owned by senior engineers.</p>
+          </details>
+          <details class="faq reveal rounded-2xl border border-navy/10 bg-mist/50 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold text-navy">
+              Is Altos expensive?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3E9C8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="mt-3 leading-relaxed text-navy-muted">No. A lean, globally distributed senior team lets us deliver top-tier engineering without a top-tier agency price tag — premium quality at a fair, efficient rate.</p>
+          </details>
+          <details class="faq reveal rounded-2xl border border-navy/10 bg-mist/50 p-6">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-display text-lg font-semibold text-navy">
+              What is ShopLink?
+              <svg class="faq-icon shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3E9C8B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="mt-3 leading-relaxed text-navy-muted">ShopLink is Altos's own inventory product. It connects your webstores, syncs stock in real time across every channel, unifies orders in one place, and turns it all into reports. It is the clearest proof of the integration work we do for clients. <a href="/shoplink/" class="font-semibold text-teal-deep underline-offset-2 hover:underline">Explore ShopLink</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CONTACT / CTA ============ -->
     <section id="contact" class="relative overflow-hidden">
       <div class="grid-lines pointer-events-none absolute inset-0"></div>
@@ -437,6 +521,7 @@
         <a href="#services" class="link-underline text-navy/70 hover:text-navy">What we do</a>
         <a href="#work" class="link-underline text-navy/70 hover:text-navy">Work</a>
         <a href="/shoplink/" class="link-underline text-navy/70 hover:text-navy">ShopLink</a>
+        <a href="#faq" class="link-underline text-navy/70 hover:text-navy">FAQ</a>
         <a href="mailto:hello@altos.systems" class="link-underline font-semibold text-navy">Contact</a>
       </div>
       <p class="text-xs text-navy-muted">© <span id="year"></span> Altos. It just works.</p>

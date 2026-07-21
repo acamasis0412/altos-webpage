@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShopLink — Your inventory, synced everywhere</title>
-  <meta name="description" content="ShopLink connects your webstores — Alibaba, Etsy, freewebstore and more — syncs stock in real time, unifies orders, and turns it all into reports. A product by Altos." />
+  <title>ShopLink — Multi-Channel Inventory Sync for Alibaba, Etsy &amp; More</title>
+  <meta name="description" content="ShopLink connects your webstores — Alibaba, Etsy, freewebstore, Shopify, WooCommerce and more — syncs stock in real time, unifies orders, and generates reports. Multi-channel inventory management by Altos." />
+  <meta name="keywords" content="inventory management software, multi-channel inventory sync, stock sync, Alibaba integration, Etsy inventory, freewebstore, Shopify inventory, order management, ShopLink, Altos" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Altos" />
+  <link rel="canonical" href="https://altos.systems/shoplink/" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/assets/shoplink-favicon.svg" />
@@ -29,18 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: {
-      colors: {
-        navy: { DEFAULT:'#16324F', deep:'#0F2438', soft:'#1B3A5B', muted:'#3D5A75' },
-        teal: { DEFAULT:'#5FBFAE', bright:'#6FD3C0', deep:'#3E9C8B' },
-        mist:'#F4F5F6'
-      },
-      fontFamily: { display:['Sora','system-ui','sans-serif'], body:['Inter','system-ui','sans-serif'] },
-      maxWidth: { content:'76rem' }
-    } } };
-  </script>
+  <!-- Compiled Tailwind (static, no render-blocking CDN) -->
+  <link rel="stylesheet" href="/assets/tailwind.css" />
 
   <style>
     html { -webkit-font-smoothing: antialiased; }
@@ -63,6 +57,43 @@
     .pulse-dot{animation:pulse-dot 1.8s ease-in-out infinite}
     @media (prefers-reduced-motion: reduce){.reveal{opacity:1!important;transform:none!important;transition:none}.flow-line,.pulse-dot{animation:none}html{scroll-behavior:auto}}
   </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://altos.systems/shoplink/#app",
+        "name": "ShopLink",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Inventory Management Software",
+        "operatingSystem": "Web",
+        "url": "https://altos.systems/shoplink/",
+        "image": "https://altos.systems/assets/shoplink-og.png",
+        "description": "ShopLink connects your webstores — Alibaba, Etsy, freewebstore, Shopify, WooCommerce and any API — syncs stock in real time, unifies orders, and generates reports.",
+        "featureList": [
+          "Real-time stock sync across every channel",
+          "Unified orders in one place",
+          "Reports and insights on sales and stock",
+          "Multi-channel product catalog",
+          "Low-stock alerts",
+          "Connect any store with an API"
+        ],
+        "publisher": { "@type": "Organization", "name": "Altos", "url": "https://altos.systems/" },
+        "brand": { "@type": "Brand", "name": "ShopLink" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Altos", "item": "https://altos.systems/" },
+          { "@type": "ListItem", "position": 2, "name": "ShopLink", "item": "https://altos.systems/shoplink/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
