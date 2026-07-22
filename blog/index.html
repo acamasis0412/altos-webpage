@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Altos</title>
+  <meta name="description" content="Notes from Altos on building software that just works: AI-accelerated engineering, lean senior teams, systems integration, and shipping faster." />
+  <meta name="keywords" content="software engineering blog, AI software development, lean engineering team, systems integration, Altos blog" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Altos" />
+  <link rel="canonical" href="https://altos.systems/blog/" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#16324F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Altos" />
+  <meta property="og:title" content="Blog — Altos" />
+  <meta property="og:description" content="Notes from Altos on building software that just works: AI-accelerated engineering, lean senior teams, and systems integration." />
+  <meta property="og:url" content="https://altos.systems/blog/" />
+  <meta property="og:image" content="https://altos.systems/assets/altos-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://altos.systems/assets/altos-og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+
+  <style>
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Sora', system-ui, sans-serif; }
+    :root { --teal: #5FBFAE; }
+    .link-underline { position: relative; }
+    .link-underline::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 2px; width: 100%; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    .link-underline:hover::after { transform: scaleX(1); }
+    .btn-teal { transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease; }
+    .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(95,191,174,.6); }
+    .card-hover { transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -24px rgba(22,50,79,.28); }
+  </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://altos.systems/blog/#blog",
+    "url": "https://altos.systems/blog/",
+    "name": "Altos Blog",
+    "description": "Notes from Altos on building software that just works.",
+    "publisher": { "@type": "Organization", "name": "Altos", "url": "https://altos.systems/" },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "How AI Lets a Lean Senior Team Ship Big Products Faster and Cheaper",
+        "url": "https://altos.systems/blog/ai-lean-senior-teams/",
+        "datePublished": "2026-07-21",
+        "author": { "@type": "Person", "name": "Al Camasis", "jobTitle": "Founder" }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-navy/5 bg-mist/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-content items-center justify-between px-6 py-4 lg:px-8">
+      <a href="/" aria-label="Altos home" class="flex items-center">
+        <svg width="128" height="34" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+      </a>
+      <div class="hidden items-center gap-9 md:flex">
+        <a href="/#services" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">What we do</a>
+        <a href="/#why" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Why Altos</a>
+        <a href="/#work" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Work</a>
+        <a href="/blog/" class="link-underline text-sm font-medium text-navy hover:text-navy">Blog</a>
+        <a href="/#contact" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Start a project</a>
+      </div>
+      <a href="/#contact" class="btn-teal rounded-full bg-teal px-4 py-2 text-sm font-semibold text-navy-deep md:hidden">Start a project</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-content px-6 pb-8 pt-16 lg:px-8 lg:pt-24">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">Blog</p>
+      <h1 class="font-display text-4xl font-extrabold tracking-tight text-navy sm:text-5xl">Notes from the build.</h1>
+      <p class="mt-4 max-w-xl text-lg leading-relaxed text-navy-muted">How we think about building software that just works: AI-accelerated engineering, lean senior teams, and making separate systems talk to each other.</p>
+    </section>
+
+    <section class="mx-auto max-w-content px-6 pb-24 pt-8 lg:px-8 lg:pb-32">
+      <div class="grid gap-6">
+        <!-- Post: AI lean senior teams -->
+        <a href="/blog/ai-lean-senior-teams/" class="card-hover group block rounded-3xl border border-navy/10 bg-white p-8 sm:p-10">
+          <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-teal-deep">
+            <span>Engineering</span>
+            <span class="text-navy/20">/</span>
+            <span class="text-navy-muted">July 21, 2026</span>
+            <span class="text-navy/20">/</span>
+            <span class="text-navy-muted">5 min read</span>
+          </div>
+          <h2 class="mt-4 font-display text-2xl font-bold leading-snug tracking-tight text-navy sm:text-3xl">How AI Lets a Lean Senior Team Ship Big Products Faster and Cheaper</h2>
+          <p class="mt-3 max-w-2xl leading-relaxed text-navy-muted">AI changed the economics of building software. A small team of senior engineers, amplified by AI, now ships big products faster and cheaper than a large mixed team. Here is why.</p>
+          <div class="mt-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy font-display text-xs font-bold text-white">AC</span>
+              <span class="text-sm text-navy-muted">Al Camasis, <span class="text-navy">Founder</span></span>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-transform group-hover:translate-x-0.5">
+              Read
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-navy/5 bg-mist">
+    <div class="mx-auto flex max-w-content flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row lg:px-8">
+      <a href="/" class="flex items-center gap-3" aria-label="Altos home">
+        <svg width="110" height="30" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+        <span class="hidden text-sm text-navy-muted sm:inline">altos.systems</span>
+      </a>
+      <div class="flex items-center gap-8 text-sm">
+        <a href="/#services" class="link-underline text-navy/70 hover:text-navy">What we do</a>
+        <a href="/blog/" class="link-underline text-navy/70 hover:text-navy">Blog</a>
+        <a href="mailto:hello@altos.systems" class="link-underline font-semibold text-navy">Contact</a>
+      </div>
+      <p class="text-xs text-navy-muted">&copy; <span id="year"></span> Altos. It just works.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

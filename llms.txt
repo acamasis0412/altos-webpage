@@ -14,6 +14,10 @@ Altos builds web apps, internal tools, and complete custom systems. Its specialt
 - **Senior-led**: every decision and every line is driven by senior engineers, never juniors.
 - **Efficient by design**: a lean, globally distributed senior team keeps pricing fair without cutting quality.
 
+## Blog
+- [How AI Lets a Lean Senior Team Ship Big Products Faster and Cheaper](https://altos.systems/blog/ai-lean-senior-teams/): by founder Al Camasis. AI changed the economics of software; a small team of senior engineers amplified by AI ships big products faster and cheaper than a large mixed team, without lower quality.
+
 ## Links
 - [Altos home](https://altos.systems/): studio overview, services, featured work, and contact.
+- [Altos blog](https://altos.systems/blog/): notes on AI-accelerated engineering and lean senior teams.
 - Contact: hello@altos.systems
