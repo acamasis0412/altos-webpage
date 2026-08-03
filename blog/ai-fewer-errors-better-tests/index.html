@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How AI Catches the Errors Humans Miss and Writes Better Tests | Altos</title>
+  <meta name="description" content="The most expensive bugs are the dumb ones humans read past for hours. AI catches them in seconds and writes the edge-case tests people skip. How AI plus an experienced team makes code more reliable, from Altos founder Al Camasis." />
+  <meta name="keywords" content="AI code review, AI testing, code reliability, fewer bugs, automated testing, edge case tests, senior engineers, AI software development, Altos" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Al Camasis" />
+  <link rel="canonical" href="https://altos.systems/blog/ai-fewer-errors-better-tests/" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#16324F" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Altos Systems" />
+  <meta property="og:title" content="How AI Catches the Errors Humans Miss and Writes Better Tests" />
+  <meta property="og:description" content="The most expensive bugs are the dumb ones humans read past for hours. AI catches them in seconds and writes better tests. Reliability comes from AI plus an experienced team." />
+  <meta property="og:url" content="https://altos.systems/blog/ai-fewer-errors-better-tests/" />
+  <meta property="og:image" content="https://altos.systems/assets/blog-ai-fewer-errors-better-tests-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-08-03" />
+  <meta property="article:author" content="Al Camasis" />
+  <meta property="article:section" content="Engineering" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How AI Catches the Errors Humans Miss and Writes Better Tests" />
+  <meta name="twitter:description" content="AI catches the dumb bugs humans read past for hours, and writes the edge-case tests people skip. Reliability comes from AI plus an experienced team." />
+  <meta name="twitter:image" content="https://altos.systems/assets/blog-ai-fewer-errors-better-tests-og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+
+  <style>
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Sora', system-ui, sans-serif; }
+    :root { --navy: #16324F; --teal: #5FBFAE; }
+    .link-underline { position: relative; }
+    .link-underline::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 2px; width: 100%; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    .link-underline:hover::after { transform: scaleX(1); }
+    .btn-teal { transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease; }
+    .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(95,191,174,.6); }
+
+    /* Article prose */
+    .article { color: #3D5A75; font-size: 1.075rem; }
+    .article > h2 { font-family: 'Sora', sans-serif; color: #16324F; font-weight: 700; font-size: 1.55rem; line-height: 1.25; letter-spacing: -0.01em; margin-top: 2.75rem; margin-bottom: 0.5rem; }
+    .article > p { margin-top: 1.15rem; line-height: 1.8; }
+    .article ul { margin-top: 1.15rem; }
+    .article li { position: relative; padding-left: 1.6rem; margin-top: 0.65rem; line-height: 1.75; }
+    .article li::before { content: ''; position: absolute; left: 3px; top: 0.6em; width: 8px; height: 8px; border-top: 2.5px solid var(--teal); border-left: 2.5px solid var(--teal); transform: rotate(45deg); }
+    .article strong { color: #16324F; font-weight: 600; }
+    .article a { color: #3E9C8B; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .article > .lede { font-size: 1.25rem; line-height: 1.7; color: #16324F; }
+    @media (min-width: 640px) { .article > h2 { font-size: 1.75rem; } }
+  </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://altos.systems/blog/ai-fewer-errors-better-tests/#post",
+        "headline": "How AI Catches the Errors Humans Miss and Writes Better Tests",
+        "description": "The most expensive bugs are the dumb ones humans read past for hours. AI catches them in seconds and writes the edge-case tests people skip. Reliability comes from AI plus an experienced team.",
+        "image": "https://altos.systems/assets/blog-ai-fewer-errors-better-tests-og.png",
+        "datePublished": "2026-08-03",
+        "dateModified": "2026-08-03",
+        "inLanguage": "en",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://altos.systems/blog/ai-fewer-errors-better-tests/" },
+        "author": { "@type": "Person", "name": "Al Camasis", "jobTitle": "Founder", "worksFor": { "@type": "Organization", "name": "Altos Systems", "url": "https://altos.systems/" } },
+        "publisher": { "@type": "Organization", "name": "Altos Systems", "url": "https://altos.systems/", "logo": { "@type": "ImageObject", "url": "https://altos.systems/assets/altos-logo.png" } },
+        "keywords": "AI code review, AI testing, code reliability, fewer bugs, edge case tests, senior engineers"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Altos", "item": "https://altos.systems/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://altos.systems/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "How AI Catches the Errors Humans Miss and Writes Better Tests", "item": "https://altos.systems/blog/ai-fewer-errors-better-tests/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-navy/5 bg-mist/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-content items-center justify-between px-6 py-4 lg:px-8">
+      <a href="/" aria-label="Altos home" class="flex items-center">
+        <svg width="128" height="34" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+      </a>
+      <div class="hidden items-center gap-9 md:flex">
+        <a href="/#services" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">What we do</a>
+        <a href="/#why" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Why Altos</a>
+        <a href="/#work" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Work</a>
+        <a href="/blog/" class="link-underline text-sm font-medium text-navy hover:text-navy">Blog</a>
+        <a href="/#contact" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Start a project</a>
+      </div>
+      <a href="/blog/" class="text-sm font-semibold text-navy md:hidden">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-8 text-sm text-navy-muted">
+        <a href="/" class="hover:text-navy">Home</a>
+        <span class="mx-1.5 text-navy/30">/</span>
+        <a href="/blog/" class="hover:text-navy">Blog</a>
+      </nav>
+
+      <!-- Header -->
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">Engineering</p>
+      <h1 class="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
+        How AI Catches the Errors Humans Miss and Writes Better Tests
+      </h1>
+
+      <div class="mt-7 flex items-center gap-3 border-b border-navy/10 pb-8">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy font-display text-sm font-bold text-white">AC</span>
+        <div class="text-sm">
+          <div class="font-semibold text-navy">Al Camasis</div>
+          <div class="text-navy-muted">Founder, Altos &middot; <time datetime="2026-08-03">August 3, 2026</time> &middot; 5 min read</div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="article mt-8">
+        <p class="lede">The most expensive bug I have ever seen was a single wrong character. Not a hard problem, not a clever edge case, just a typo that a tired engineer read past a dozen times. It took most of a day to find. The fix took ten seconds. That gap, hours to find and seconds to fix, is exactly where AI changes the economics of reliable software.</p>
+
+        <h2>The dumbest bugs are the most expensive</h2>
+        <p>The bugs that cost the most are almost never the clever ones. They are the small, silly mistakes. An off-by-one in a loop. A variable named <strong>total</strong> where you meant <strong>subtotal</strong>. A missing null check. A condition that reads greater-than when it should read greater-than-or-equal. None of these are hard to understand. They are hard to see, because your brain reads what you meant to write, not what is actually there. A person can stare at the same five lines for an hour and skim right past the problem.</p>
+
+        <h2>AI is a second set of eyes that never gets tired</h2>
+        <p>This is the kind of work AI is genuinely great at. It does not get tired, it does not assume, and it does not read past a mistake because it already thinks it knows what the code is supposed to say. Point it at a change and it flags the off-by-one, the unhandled case, the value you used before you defined it, the block you copy-pasted and forgot to update. In seconds. Not because it is smarter than a senior engineer, but because it is a fresh, patient reader every single time, which is exactly what a human cannot be at 4pm on a Friday.</p>
+        <p>Catching these before they reach production is the whole game. A bug caught in review costs minutes. The same bug caught in production costs hours, plus the trust of whoever hit it first.</p>
+
+        <h2>Where AI really earns its keep: tests</h2>
+        <p>Reviewing is useful. Testing is where AI becomes a real multiplier for reliability.</p>
+        <p>Left to ourselves, humans write the tests we can imagine, and we mostly imagine the happy path. The user does the expected thing, the data is well formed, the network behaves. That is the ten percent of cases that rarely break. The failures live in the other ninety percent: empty inputs, enormous inputs, strange characters, the request that arrives twice, the thing that happens when a third party goes down.</p>
+        <p>AI is good at enumerating exactly that. Ask it to test a function and it reaches for the boundaries and the failure modes a person skips when they are tired or in a hurry. You get broader coverage, faster, and you get it early, when it is still cheap to act on.</p>
+
+        <h2>But AI-written tests can lie to you</h2>
+        <p>Here is the trap, and it is a real one. AI will happily write a test that passes and proves nothing. A test that asserts the code did what the code did, not what it should do. A test that stays green because it never actually runs the risky path. If you take AI tests at face value, you end up with a wall of green checkmarks and a false sense of safety, which is worse than no tests at all, because now you trust something that has not earned it.</p>
+        <p>Telling a real test from a rubber stamp takes judgment. You have to know what correct means for this system, which cases actually matter, and where the real risk lives. That is not something you can hand to the tool and walk away from.</p>
+
+        <h2>Reliability comes from the pairing, not the tool</h2>
+        <p>This is the part people miss when they talk about AI and code quality. AI does not make code reliable on its own. It removes a class of dumb mistakes and it widens your test coverage. Both are real gains. But whether those gains turn into reliable software depends entirely on who is driving.</p>
+        <p>In the hands of an experienced engineer, AI is a reliability multiplier. The engineer knows what to check, reads the AI output with a skeptical eye, keeps the tests that matter, and throws out the ones that only pretend to. In the hands of someone who cannot tell a good test from a bad one, AI just produces more confident-looking output with the same blind spots baked in, now harder to spot. Speed with judgment gives you reliable software. Speed without judgment gives you bugs that ship faster.</p>
+
+        <h2>How we do it at Altos</h2>
+        <p>Every change we ship gets an AI pass and a human pass. AI catches the small errors and drafts the edge-case tests. A senior engineer decides what correct means, keeps the tests that actually protect the system, and owns the result. The AI makes the senior faster and sharper. The senior makes sure the reliability is real, not just green.</p>
+        <p>That is why we can move fast and still stand behind the idea that it just works. The speed comes from the tools. The reliability comes from the people using them.</p>
+
+        <h2>The takeaway</h2>
+        <p>AI is very good at catching the errors that are easy to make and hard to find, and at widening the net of what gets tested. That alone removes a lot of the pain from building software. But reliability is not a feature you get from a tool. It is what happens when a strong engineer uses that tool well. Give AI to an experienced team and you get fewer bugs, better tests, and software you can trust. Give it to anyone else and you just get faster.</p>
+      </div>
+
+      <!-- Author + CTA -->
+      <div class="mt-14 rounded-3xl bg-white p-8 ring-1 ring-navy/10 sm:p-10">
+        <div class="flex items-start gap-4">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy font-display text-base font-bold text-white">AC</span>
+          <div>
+            <div class="font-display font-bold text-navy">Al Camasis</div>
+            <p class="mt-1 text-sm leading-relaxed text-navy-muted">Founder of Altos, a full-stack software studio specializing in seamless integrations. Altos builds custom software with a lean, senior, AI-accelerated team.</p>
+          </div>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center gap-4 border-t border-navy/10 pt-7">
+          <a href="/#contact" class="btn-teal rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-navy-deep">Start a project</a>
+          <a href="/blog/" class="link-underline text-sm font-semibold text-navy">Back to the blog</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-navy/5 bg-mist">
+    <div class="mx-auto flex max-w-content flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row lg:px-8">
+      <a href="/" class="flex items-center gap-3" aria-label="Altos home">
+        <svg width="110" height="30" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+        <span class="hidden text-sm text-navy-muted sm:inline">altos.systems</span>
+      </a>
+      <div class="flex items-center gap-8 text-sm">
+        <a href="/#services" class="link-underline text-navy/70 hover:text-navy">What we do</a>
+        <a href="/blog/" class="link-underline text-navy/70 hover:text-navy">Blog</a>
+        <a href="mailto:hello@altos.systems" class="link-underline font-semibold text-navy">Contact</a>
+      </div>
+      <p class="text-xs text-navy-muted">&copy; <span id="year"></span> Altos. It just works.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -15,6 +15,7 @@ Altos builds web apps, internal tools, and complete custom systems. Its specialt
 - **Efficient by design**: a lean, globally distributed senior team keeps pricing fair without cutting quality.
 
 ## Blog
+- [How AI Catches the Errors Humans Miss and Writes Better Tests](https://altos.systems/blog/ai-fewer-errors-better-tests/): by founder Al Camasis. AI catches the small, costly mistakes humans read past for hours and writes the edge-case tests people skip. Code reliability comes from AI paired with an experienced team, not from the tool alone.
 - [How AI Lets a Lean Senior Team Ship Big Products Faster and Cheaper](https://altos.systems/blog/ai-lean-senior-teams/): by founder Al Camasis. AI changed the economics of software; a small team of senior engineers amplified by AI ships big products faster and cheaper than a large mixed team, without lower quality.
 
 ## Links
