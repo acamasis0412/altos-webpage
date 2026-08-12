@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How We Rebuilt an Inventory System for a Client Who Isn't Technical | Altos</title>
+  <meta name="description" content="The story of rebuilding the UK Hip Flasks inventory system for a non-technical owner: clear communication, mockups, senior-level decisions, careful API testing, and AI-accelerated delivery. A case study from Altos." />
+  <meta name="keywords" content="software case study, inventory system, non-technical client, custom software, webstore integration, senior developer, AI-accelerated development, UK Hip Flasks, Altos" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Al Camasis" />
+  <link rel="canonical" href="https://altos.systems/blog/uk-hip-flasks-inventory-rebuild/" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#16324F" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Altos Systems" />
+  <meta property="og:title" content="How We Rebuilt an Inventory System for a Client Who Isn't Technical" />
+  <meta property="og:description" content="A case study on rebuilding the UK Hip Flasks inventory system for a non-technical owner: clear communication, senior-level decisions, careful API testing, and AI-accelerated delivery." />
+  <meta property="og:url" content="https://altos.systems/blog/uk-hip-flasks-inventory-rebuild/" />
+  <meta property="og:image" content="https://altos.systems/assets/blog-uk-hip-flasks-inventory-rebuild-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-08-12" />
+  <meta property="article:author" content="Al Camasis" />
+  <meta property="article:section" content="Case Study" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How We Rebuilt an Inventory System for a Client Who Isn't Technical" />
+  <meta name="twitter:description" content="A case study on building for a non-technical owner: clear communication, senior-level decisions, careful API testing, and AI-accelerated delivery." />
+  <meta name="twitter:image" content="https://altos.systems/assets/blog-uk-hip-flasks-inventory-rebuild-og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+
+  <style>
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Sora', system-ui, sans-serif; }
+    :root { --navy: #16324F; --teal: #5FBFAE; }
+    .link-underline { position: relative; }
+    .link-underline::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 2px; width: 100%; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    .link-underline:hover::after { transform: scaleX(1); }
+    .btn-teal { transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease; }
+    .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(95,191,174,.6); }
+
+    /* Article prose */
+    .article { color: #3D5A75; font-size: 1.075rem; }
+    .article > h2 { font-family: 'Sora', sans-serif; color: #16324F; font-weight: 700; font-size: 1.55rem; line-height: 1.25; letter-spacing: -0.01em; margin-top: 2.75rem; margin-bottom: 0.5rem; }
+    .article > p { margin-top: 1.15rem; line-height: 1.8; }
+    .article strong { color: #16324F; font-weight: 600; }
+    .article a { color: #3E9C8B; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .article > .lede { font-size: 1.25rem; line-height: 1.7; color: #16324F; }
+    .article blockquote { margin: 1.75rem 0 0; border-left: 3px solid var(--teal); padding: 0.15rem 0 0.15rem 1.5rem; }
+    .article blockquote p { font-family: 'Sora', sans-serif; font-size: 1.2rem; line-height: 1.6; color: #16324F; font-weight: 500; margin: 0; }
+    .article blockquote cite { display: block; margin-top: 0.85rem; font-style: normal; font-size: 0.95rem; color: #3D5A75; }
+    .article blockquote cite b { color: #16324F; font-weight: 600; }
+    @media (min-width: 640px) { .article > h2 { font-size: 1.75rem; } }
+  </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://altos.systems/blog/uk-hip-flasks-inventory-rebuild/#post",
+        "headline": "How We Rebuilt an Inventory System for a Client Who Isn't Technical",
+        "description": "A case study on rebuilding the UK Hip Flasks inventory system for a non-technical owner: clear communication, senior-level decisions, careful API testing, and AI-accelerated delivery.",
+        "image": "https://altos.systems/assets/blog-uk-hip-flasks-inventory-rebuild-og.png",
+        "datePublished": "2026-08-12",
+        "dateModified": "2026-08-12",
+        "inLanguage": "en",
+        "articleSection": "Case Study",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://altos.systems/blog/uk-hip-flasks-inventory-rebuild/" },
+        "author": { "@type": "Person", "name": "Al Camasis", "jobTitle": "Founder", "worksFor": { "@type": "Organization", "name": "Altos Systems", "url": "https://altos.systems/" } },
+        "publisher": { "@type": "Organization", "name": "Altos Systems", "url": "https://altos.systems/", "logo": { "@type": "ImageObject", "url": "https://altos.systems/assets/altos-logo.png" } },
+        "keywords": "software case study, inventory system, non-technical client, webstore integration, senior developer"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Altos", "item": "https://altos.systems/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://altos.systems/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "How We Rebuilt an Inventory System for a Client Who Isn't Technical", "item": "https://altos.systems/blog/uk-hip-flasks-inventory-rebuild/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-navy/5 bg-mist/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-content items-center justify-between px-6 py-4 lg:px-8">
+      <a href="/" aria-label="Altos home" class="flex items-center">
+        <svg width="128" height="34" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+      </a>
+      <div class="hidden items-center gap-9 md:flex">
+        <a href="/#services" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">What we do</a>
+        <a href="/#why" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Why Altos</a>
+        <a href="/#work" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Work</a>
+        <a href="/blog/" class="link-underline text-sm font-medium text-navy hover:text-navy">Blog</a>
+        <a href="/#contact" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Start a project</a>
+      </div>
+      <a href="/blog/" class="text-sm font-semibold text-navy md:hidden">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-8 text-sm text-navy-muted">
+        <a href="/" class="hover:text-navy">Home</a>
+        <span class="mx-1.5 text-navy/30">/</span>
+        <a href="/blog/" class="hover:text-navy">Blog</a>
+      </nav>
+
+      <!-- Header -->
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">Case Study</p>
+      <h1 class="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
+        How We Rebuilt an Inventory System for a Client Who Isn't Technical
+      </h1>
+
+      <div class="mt-7 flex items-center gap-3 border-b border-navy/10 pb-8">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy font-display text-sm font-bold text-white">AC</span>
+        <div class="text-sm">
+          <div class="font-semibold text-navy">Al Camasis</div>
+          <div class="text-navy-muted">Founder, Altos &middot; <time datetime="2026-08-12">August 12, 2026</time> &middot; 6 min read</div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="article mt-8">
+        <p class="lede">The first time we spoke with Mark, he said something we hear more often than you would think. Almost before anything else, he told us he needed someone with real senior experience for this, because he is not a technical person. He runs UK Hip Flasks. He knows his business inside out. What he did not want was to be handed jargon and decisions he had no way to judge.</p>
+        <p>That one sentence shaped the entire project. And honestly, it is our favorite kind of brief.</p>
+
+        <h2>The real work is the conversation</h2>
+        <p>When a client is not technical, the hardest part of the job is not the code. It is making sure the person paying for the work always understands what is happening, in plain language, without ever feeling talked down to. So that is where we started. Every part of what needed to be done, we explained at a high level: what we were building, why it mattered for his business, and what he would get out of it. No acronyms for the sake of it. No pretending complexity is a virtue. Just clear, honest explanations he could actually make decisions with. Good communication was not a nice-to-have on this project. It was the whole foundation.</p>
+
+        <h2>Mockups before code</h2>
+        <p>Words only go so far, especially with something visual like an inventory system. So before building the real thing, we put together mockups: simple, visual versions of the screens and flows we could talk through together. It let Mark see the idea instead of imagining it from a description. We could point at things, react, and adjust while it was still cheap and easy to change. High-level discussion, grounded in something he could actually look at.</p>
+
+        <h2>Options, not orders</h2>
+        <p>A non-technical client should never be forced to guess. So whenever there was a real decision to make, we laid out the options, explained the trade-offs in plain terms, and told him what we would recommend and why. Then we left the choice with him. Suggesting is not the same as forcing. Our job was to make the path clear, not to push him down it.</p>
+
+        <h2>Making the right calls on his behalf</h2>
+        <p>Here is the part we take most seriously. Mark told us what he wanted for his business. He did not tell us how to build it, because that is not his world. So a lot of the important decisions were ours to make, and we made them the way a professional should: choosing the option that gives the client the best result, even the parts he will never see or notice.</p>
+        <p>A lot of good engineering is invisible. The client feels that things are fast and reliable, but he does not see the decisions underneath that made them that way. When someone trusts you to make those calls, you make them as if the business were your own. You do the right thing under the hood every time, whether or not anyone is watching.</p>
+
+        <h2>Improvements along the way, with a yes first</h2>
+        <p>As the work went on, we kept spotting things that could be better. Small refinements, smarter ways to handle something, features that would quietly make his life easier. We brought every one of them to him. But we never just went ahead and did them. Nothing gets built without a final yes from the client first. Proactive, but never presumptuous. Mark later said the suggestions were always well thought out, and that meant a lot, because that is exactly the bar we hold them to.</p>
+
+        <h2>Fast and precise, with AI in the loop</h2>
+        <p>This is also where modern tools earn their place. AI is a real part of how we work now, and on this project it made the build fast and precise. It took the tedious weight off the process so we could spend our time on judgment and quality instead of grinding through boilerplate. The practical result for Mark was a steady stream of releases that just worked, and a client who was satisfied after each one. Speed did not come at the cost of care. It came from removing the busywork around the care.</p>
+
+        <h2>Testing where it matters most</h2>
+        <p>The riskiest part of an inventory system is the moment it talks to the outside world, in this case the webstore. If stock and orders do not sync correctly, the whole thing loses its value. So that is exactly where we focused the testing. Every connection to the webstore side was checked carefully, for the normal cases and the awkward ones, so the sync could be trusted in production and not just in a demo.</p>
+
+        <h2>Clean, fast, and built to last</h2>
+        <p>Underneath all of it, we held the code to a standard. Quality and optimization were not an afterthought bolted on at the end. They were the default the whole way through. The nicest confirmation came from Mark himself, who said the new system is noticeably faster and cleaner than what he had before. That is the kind of feedback we chase, because it means the invisible work paid off in something he can feel every day.</p>
+
+        <h2>The result</h2>
+        <p>The system went live, and Mark put it better than we could:</p>
+        <blockquote>
+          <p>&ldquo;The replacement system is a great improvement on previous versions: faster, cleaner, and it just works better overall. I have found them reliable and responsive.&rdquo;</p>
+          <cite><b>Mark Nogula</b>, UK Hip Flasks</cite>
+        </blockquote>
+        <p>That is the whole job, really. Take a business owner who does not speak the technical language, understand what he actually needs, make the right calls on his behalf, and hand back something faster, cleaner, and more reliable than what he had. All of it built on clear communication and a real sense of ownership.</p>
+        <p>If you have something you need built and you are not even sure how to describe the technical side, that is fine. That is the part we are here for. Tell us what you want for your business, and we will take it from there.</p>
+      </div>
+
+      <!-- Author + CTA -->
+      <div class="mt-14 rounded-3xl bg-white p-8 ring-1 ring-navy/10 sm:p-10">
+        <div class="flex items-start gap-4">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy font-display text-base font-bold text-white">AC</span>
+          <div>
+            <div class="font-display font-bold text-navy">Al Camasis</div>
+            <p class="mt-1 text-sm leading-relaxed text-navy-muted">Founder of Altos, a full-stack software studio specializing in seamless integrations. Altos builds custom software with a lean, senior, AI-accelerated team.</p>
+          </div>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center gap-4 border-t border-navy/10 pt-7">
+          <a href="/#contact" class="btn-teal rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-navy-deep">Start a project</a>
+          <a href="/blog/" class="link-underline text-sm font-semibold text-navy">Back to the blog</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-navy/5 bg-mist">
+    <div class="mx-auto flex max-w-content flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row lg:px-8">
+      <a href="/" class="flex items-center gap-3" aria-label="Altos home">
+        <svg width="110" height="30" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+        <span class="hidden text-sm text-navy-muted sm:inline">Altos Systems</span>
+      </a>
+      <div class="flex items-center gap-8 text-sm">
+        <a href="/#services" class="link-underline text-navy/70 hover:text-navy">What we do</a>
+        <a href="/blog/" class="link-underline text-navy/70 hover:text-navy">Blog</a>
+        <a href="mailto:hello@altos.systems" class="link-underline font-semibold text-navy">Contact</a>
+      </div>
+      <p class="text-xs text-navy-muted">&copy; <span id="year"></span> Altos. It just works.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
