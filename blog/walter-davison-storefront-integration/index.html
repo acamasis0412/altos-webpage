@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How We Gave Walter Davison a New Storefront That Isn't an Island | Altos</title>
+  <meta name="description" content="A case study: rebuilding the Walter Davison Wholesale storefront and connecting it to the same inventory system behind UK Hip Flasks, so two brands run from one source of truth." />
+  <meta name="keywords" content="e-commerce integration case study, Shopify integration, inventory sync, multi-brand inventory, storefront integration, one source of truth, Walter Davison Wholesale, Altos" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Al Camasis" />
+  <link rel="canonical" href="https://altos.systems/blog/walter-davison-storefront-integration/" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#16324F" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Altos Systems" />
+  <meta property="og:title" content="How We Gave Walter Davison a New Storefront That Isn't an Island" />
+  <meta property="og:description" content="A rebuilt storefront connected to the same inventory system behind UK Hip Flasks: two brands, two markets, one source of truth." />
+  <meta property="og:url" content="https://altos.systems/blog/walter-davison-storefront-integration/" />
+  <meta property="og:image" content="https://altos.systems/assets/blog-walter-davison-storefront-integration-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-09-30" />
+  <meta property="article:author" content="Al Camasis" />
+  <meta property="article:section" content="Case Study" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How We Gave Walter Davison a New Storefront That Isn't an Island" />
+  <meta name="twitter:description" content="A rebuilt storefront connected to the same inventory system behind UK Hip Flasks: two brands, one source of truth." />
+  <meta name="twitter:image" content="https://altos.systems/assets/blog-walter-davison-storefront-integration-og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+
+  <style>
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .font-display { font-family: 'Sora', system-ui, sans-serif; }
+    :root { --navy: #16324F; --teal: #5FBFAE; }
+    .link-underline { position: relative; }
+    .link-underline::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 2px; width: 100%; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16,1,.3,1); }
+    .link-underline:hover::after { transform: scaleX(1); }
+    .btn-teal { transition: transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease; }
+    .btn-teal:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(95,191,174,.6); }
+
+    /* Article prose */
+    .article { color: #3D5A75; font-size: 1.075rem; }
+    .article > h2 { font-family: 'Sora', sans-serif; color: #16324F; font-weight: 700; font-size: 1.55rem; line-height: 1.25; letter-spacing: -0.01em; margin-top: 2.75rem; margin-bottom: 0.5rem; }
+    .article > p { margin-top: 1.15rem; line-height: 1.8; }
+    .article strong { color: #16324F; font-weight: 600; }
+    .article a { color: #3E9C8B; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .article > .lede { font-size: 1.25rem; line-height: 1.7; color: #16324F; }
+    @media (min-width: 640px) { .article > h2 { font-size: 1.75rem; } }
+  </style>
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://altos.systems/blog/walter-davison-storefront-integration/#post",
+        "headline": "How We Gave Walter Davison a New Storefront That Isn't an Island",
+        "description": "A case study: rebuilding the Walter Davison Wholesale storefront and connecting it to the same inventory system behind UK Hip Flasks, so two brands run from one source of truth.",
+        "image": "https://altos.systems/assets/blog-walter-davison-storefront-integration-og.png",
+        "datePublished": "2026-09-30",
+        "dateModified": "2026-09-30",
+        "inLanguage": "en",
+        "articleSection": "Case Study",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://altos.systems/blog/walter-davison-storefront-integration/" },
+        "author": { "@type": "Person", "name": "Al Camasis", "jobTitle": "Founder", "worksFor": { "@type": "Organization", "name": "Altos Systems", "url": "https://altos.systems/" } },
+        "publisher": { "@type": "Organization", "name": "Altos Systems", "url": "https://altos.systems/", "logo": { "@type": "ImageObject", "url": "https://altos.systems/assets/altos-logo.png" } },
+        "keywords": "e-commerce integration, Shopify integration, inventory sync, multi-brand inventory, one source of truth"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Altos", "item": "https://altos.systems/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://altos.systems/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "How We Gave Walter Davison a New Storefront That Isn't an Island", "item": "https://altos.systems/blog/walter-davison-storefront-integration/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-mist text-navy font-body antialiased selection:bg-teal/30 selection:text-navy-deep">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-navy/5 bg-mist/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-content items-center justify-between px-6 py-4 lg:px-8">
+      <a href="/" aria-label="Altos home" class="flex items-center">
+        <svg width="128" height="34" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+      </a>
+      <div class="hidden items-center gap-9 md:flex">
+        <a href="/#services" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">What we do</a>
+        <a href="/#why" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Why Altos</a>
+        <a href="/#work" class="link-underline text-sm font-medium text-navy/70 hover:text-navy">Work</a>
+        <a href="/blog/" class="link-underline text-sm font-medium text-navy hover:text-navy">Blog</a>
+        <a href="/#contact" class="btn-teal rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-navy-deep">Start a project</a>
+      </div>
+      <a href="/blog/" class="text-sm font-semibold text-navy md:hidden">Blog</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-8 text-sm text-navy-muted">
+        <a href="/" class="hover:text-navy">Home</a>
+        <span class="mx-1.5 text-navy/30">/</span>
+        <a href="/blog/" class="hover:text-navy">Blog</a>
+      </nav>
+
+      <!-- Header -->
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-teal-deep">Case Study</p>
+      <h1 class="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
+        How We Gave Walter Davison a New Storefront That Isn't an Island
+      </h1>
+
+      <div class="mt-7 flex items-center gap-3 border-b border-navy/10 pb-8">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy font-display text-sm font-bold text-white">AC</span>
+        <div class="text-sm">
+          <div class="font-semibold text-navy">Al Camasis</div>
+          <div class="text-navy-muted">Founder, Altos &middot; <time datetime="2026-09-30">September 30, 2026</time> &middot; 4 min read</div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="article mt-8">
+        <p class="lede">When Walter Davison Wholesale, the US sister company of UK Hip Flasks, needed a new storefront, the easy answer was a fresh theme and a launch date. But we had just written about why <a href="/blog/online-store-half-the-system/">an online store is only half the system</a>, and this was a chance to prove it.</p>
+
+        <h2>The brief: a new store, not a new silo</h2>
+        <p>The owner already trusted us with the inventory system that runs UK Hip Flasks, so this was a returning client, which is the best kind of brief. Walter Davison needed a modern Shopify storefront for the US market. The risk was obvious: a separate store with separate stock means two sources of truth, double data entry, and orders that do not match what is actually on the shelf.</p>
+
+        <h2>Rebuilding the storefront properly</h2>
+        <p>We rebuilt the storefront rather than patching the old one, with a clean structure the team can manage day to day and a real focus on speed. As always, we explained every decision at a high level, gave options instead of orders, and got a yes before building anything new.</p>
+
+        <h2>Connecting it to the system underneath</h2>
+        <p>This is the part that makes it more than a store. We connected the Shopify storefront to the same inventory system behind UK Hip Flasks, so stock and orders stay in sync across both brands automatically. We tested that connection hard, because a sync you cannot trust is worse than no sync at all.</p>
+
+        <h2>The result</h2>
+        <p>Two brands, two markets, one source of truth. A US storefront that knows exactly what is in stock, feeding the same system the UK side already relies on. And a client who came back for a second project, which says more than any pitch we could write.</p>
+
+        <p>If you are launching a new store, or adding a brand to a business that already runs on its own systems, that connected half is the part we build.</p>
+      </div>
+
+      <!-- Author + CTA -->
+      <div class="mt-14 rounded-3xl bg-white p-8 ring-1 ring-navy/10 sm:p-10">
+        <div class="flex items-start gap-4">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy font-display text-base font-bold text-white">AC</span>
+          <div>
+            <div class="font-display font-bold text-navy">Al Camasis</div>
+            <p class="mt-1 text-sm leading-relaxed text-navy-muted">Founder of Altos, a full-stack software studio specializing in seamless integrations. Altos builds custom software with a lean, senior, AI-accelerated team.</p>
+          </div>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center gap-4 border-t border-navy/10 pt-7">
+          <a href="/#contact" class="btn-teal rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-navy-deep">Start a project</a>
+          <a href="/blog/" class="link-underline text-sm font-semibold text-navy">Back to the blog</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-navy/5 bg-mist">
+    <div class="mx-auto flex max-w-content flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row lg:px-8">
+      <a href="/" class="flex items-center gap-3" aria-label="Altos home">
+        <svg width="110" height="30" viewBox="0 0 250 60" fill="none" role="img" aria-label="Altos">
+          <path d="M6 52 L28 8 L50 52" stroke="#16324F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 45 L28 24 L40 45" stroke="#5FBFAE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="60" y="49" font-family="Sora, sans-serif" font-size="46" font-weight="800" letter-spacing="1" fill="#16324F">LTOS</text>
+        </svg>
+        <span class="hidden text-sm text-navy-muted sm:inline">Altos Systems</span>
+      </a>
+      <div class="flex items-center gap-8 text-sm">
+        <a href="/#services" class="link-underline text-navy/70 hover:text-navy">What we do</a>
+        <a href="/blog/" class="link-underline text-navy/70 hover:text-navy">Blog</a>
+        <a href="mailto:hello@altos.systems" class="link-underline font-semibold text-navy">Contact</a>
+      </div>
+      <p class="text-xs text-navy-muted">&copy; <span id="year"></span> Altos. It just works.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
