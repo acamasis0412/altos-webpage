@@ -591,6 +591,9 @@
       }
       root.querySelector('[data-t-prev]').addEventListener('click', function () { show(i - 1); });
       root.querySelector('[data-t-nextbtn]').addEventListener('click', function () { show(i + 1); });
+      // Always open on Mark's quote, including when the page is restored via Back/Forward
+      show(0);
+      window.addEventListener('pageshow', function () { show(0); });
     })();
 
     // Mobile menu
